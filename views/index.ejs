@@ -1,0 +1,28 @@
+<div class="author">
+    <h1 class="author__heading">Suku Badan Kesatuan Bangsa dan Politik</h1>
+    <p class="author__body">Kota Administrasi Jakarta Timur</p>
+</div>
+
+<div class="image-xcontain">
+    <img src="/images/department.jpg" alt="Gedung Walikota Jakarta Timur" class="department-image">
+</div>
+
+
+<section class="articles">
+    <h2 class="articles__heading">Latest Post</h2>
+
+    <ul class="article-ul">
+
+        <% data.forEach(post => { %>
+        <li>
+            <a href="#">
+                <span class="article-titles"><%= post.title %></span>
+                <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+            </a>
+        </li>
+        <% }) %>
+
+    </ul>
+
+    <a href="#" class="pagination">&lt; View Older Post</a>
+</section>
