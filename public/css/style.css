@@ -286,7 +286,7 @@ img {
 /* SearchBar */
 .searchBar {
     visibility: hidden;
-    transform: translateY(-100px); 
+    transform: translateY(-100px);
     background-color: var(--black);
     padding: 20px 0;
     position: absolute;
@@ -305,6 +305,7 @@ img {
 }
 
 #searchClose {
+    cursor: pointer;
     position: absolute;
     top: 0;
     right: 0;
