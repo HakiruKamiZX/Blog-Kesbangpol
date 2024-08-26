@@ -118,7 +118,7 @@ router.get('/about', (req,res) => {
     res.render('about');
 });
 
-module.exports = router;
+
 
 execute: async () => {
     let timeout = 25;
@@ -141,6 +141,7 @@ execute: async () => {
     );
 }
 
+module.exports = router;
 /** function InsertPostData () {
     Post.insertMany([
         {
