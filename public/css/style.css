@@ -370,16 +370,13 @@ img {
 .wrapper {
     width: 420px;
     background: transparent;
-    border: 2px solid rgba(91, 0, 0, 0.337);
+    border: 2px solid rgb(0, 0, 0);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgb(0, 0, 0);
     color: #000000;
     padding: 30px 40px;
     border-radius: 10px;
 }
-
-
-
 
 .wrapper h1 {
     font-size: 36px;
