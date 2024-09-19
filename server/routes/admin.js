@@ -13,18 +13,21 @@ const jwtSecret = process.env.JWT_SECRET
 /**
  * CHECK LOGIN
  */
-// const authMiddleware = (req, res, next) => {
-//     const token = req.cookies.token;
+const authMiddleware = (req, res, next) => {
+    const token = req.cookies.token;
 
-//     if(!token) {
-//         return res.status(401).json( { message: 'Unauthorized'});
-//     }
+    if(!token) {
+        return res.status(401).json( { message: 'Unauthorized'});
+    }
 
-//     try {
-//         const decoded = jwt.verify(token, jwtSecret)
-//         req.userId = decoded.userId
-//     }
-// }
+    try {
+        const decoded = jwt.verify(token, jwtSecret)
+        req.userId = decoded.userId;
+        next();
+    } catch (error) {
+        return res.status(401).json( { message: 'Unauthorized'});
+    }
+}
 
 
 /**
@@ -107,7 +110,7 @@ router.post('/register', async (req, res) => {
  * ADMIN DASHBOARD
  */
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', authMiddleware ,async (req, res) => {
 
     res.render('admin/dashboard');
 
