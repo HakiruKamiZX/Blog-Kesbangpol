@@ -106,14 +106,27 @@ router.post('/register', async (req, res) => {
 });
 
 /**
- * POST /
+ * GET /
  * ADMIN DASHBOARD
  */
 
 router.get('/dashboard', authMiddleware ,async (req, res) => {
 
-    res.render('admin/dashboard');
+    try {
+        const locals =  {
+            title: 'Dashboard',
+            description : 'Admin Dashbaord For Kesbangpol Blog'
+        }
 
+
+        const data = await Post.find();
+        res.render(`admin/dashboard`, {
+            locals,
+            data
+        });
+    } catch (error) {
+        
+    }
 });
 
 module.exports = router;
