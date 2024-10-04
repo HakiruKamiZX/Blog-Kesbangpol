@@ -3,18 +3,20 @@
 </div>
 
 <section class="articles">
-
-    <ul class="article-ul">
-
-        <% data.forEach(post => { %>
-        <li>
-            <a href="/post/<%= post._id %>">
-                <span class="article-titles"><%= post.title %></span>
-                <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
-            </a>
-        </li>
+    <div class="article-cards">
+        <% data.slice(0, 2).forEach(post => { %> <!-- Limit to 2 posts -->
+        <div class="article-card">
+            <div class="article-card-content">
+                <h3 class="article-title"><%= post.title %></h3>
+                <p class="article-date"><%= post.createdAt.toDateString() %></p>
+                <p class="article-description">This is a short description or excerpt of the post.</p>
+                <a href="/post/<%= post._id %>" class="read-more">Continue reading &rarr;</a>
+            </div>
+            <!-- Commented out the thumbnail section for now -->
+            <!-- <div class="article-thumbnail">
+                <img src="/path/to/thumbnail.jpg" alt="Thumbnail" />
+            </div> -->
+        </div>
         <% }) %>
-
-    </ul>
-    
+    </div>
 </section>
