@@ -8,28 +8,44 @@
 </div>
 
 
-<section class="articles">
-    <h2 class="articles__heading">Latest Post</h2>
-
-    <div class="article-cards">
-        <% data.slice(0, 2).forEach(post => { %> <!-- Limit to 2 posts -->
-        <div class="article-card">
-            <div class="article-card-content">
-                <h3 class="article-title"><%= post.title %></h3>
-                <p class="article-date"><%= post.createdAt.toDateString() %></p>
-                <p class="article-description">This is a short description or excerpt of the post.</p>
-                <a href="/post/<%= post._id %>" class="read-more">Continue reading &rarr;</a>
-            </div>
-            <!-- Commented out the thumbnail section for now -->
-            <!-- <div class="article-thumbnail">
-                <img src="/path/to/thumbnail.jpg" alt="Thumbnail" />
-            </div> -->
-        </div>
-        <% }) %>
+<section class="news-section">
+    <!-- Article Heading -->
+    <div class="articles__header">
+      <h2 class="articles__heading">Latest Post</h2>
+      <div class="heading-underline"></div>
     </div>
-
-    <% if (nextPage !== null) { %>
-        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Post</a>
-    <% } %>
-</section>
+  
+    <!-- Articles Container -->
+    <div class="articles__container">
+      <% data.forEach(function(post) { %>
+        <div class="article-card">
+          <h3 class="article-title"><%= post.title %></h3>
+          <p class="article-meta"><%= post.createdAt.toDateString() %></p>
+  
+          <!-- Show only the first 20 words of the article body -->
+          <p class="article-excerpt">
+            <% let words = post.body.split(' '); %>
+            <%= words.slice(0, 40).join(' ') %>...
+          </p>
+  
+          <!-- Continue Reading Link -->
+          <a href="/post/<%= post._id %>" class="read-more">Continue Reading &rarr; </a>
+        </div>
+      <% }); %>
+    </div>
+  
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      <% if (current > 1) { %>
+        <a href="?page=<%= current - 1 %>" class="prev">Previous</a>
+      <% } %>
+      
+      <% if (nextPage) { %>
+        <a href="?page=<%= nextPage %>" class="next">Next</a>
+      <% } %>
+    </div>
+  </section>
+  
+  
+  
 
