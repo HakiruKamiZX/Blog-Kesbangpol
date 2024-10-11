@@ -14,7 +14,7 @@ router.get ('', async (req, res) => {
             description: "This is a test for thew node js version of the web"
         }
 
-        let perPage = 10;
+        let perPage = 4;
         let page = req.query.page || 1;
 
         const data = await Post.aggregate([ { $sort: { createdAt : -1 } } ])
