@@ -122,11 +122,117 @@ router.get('/dashboard', authMiddleware ,async (req, res) => {
         const data = await Post.find();
         res.render(`admin/dashboard`, {
             locals,
-            data
+            data,
+            layout: adminLayout
         });
+
     } catch (error) {
+        console.log(error);
         
     }
 });
+
+
+/**
+ * GET /
+ * ADMIN - Create New Post
+ */
+
+router.get('/add-post', authMiddleware ,async (req, res) => {
+
+    try {
+        const locals =  {
+            title: 'Add Post',
+            description : 'Admin Dashbaord For Kesbangpol Blog'
+        }
+
+
+        const data = await Post.find();
+        res.render(`admin/add-post`, {
+            locals,
+            layout: adminLayout
+        });
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+});
+
+
+/**
+ * POST /
+ * ADMIN - Create New Post
+ */
+
+router.post('/add-post', authMiddleware ,async (req, res) => {
+    try {
+        try {
+            const newPost = new Post({
+                title: req.body.title,
+                body: req.body.body
+            });
+
+            await Post.create(newPost);
+            res.redirect('/dashboard');
+         
+        } catch (error) {
+            console.log(error);
+        }
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+});
+
+/**
+ * GET /
+ * ADMIN - Edit Post
+ */
+
+router.get('/edit-post/:id', authMiddleware, async (req, res) => {
+    try {
+  
+      const locals = {
+        title: "Edit Post",
+        description: "Test Blog for Kesbangpol"
+      };
+  
+      const data = await Post.findOne({ _id: req.params.id });
+  
+      res.render('admin/edit-post', {
+        locals,
+        data,
+        layout: adminLayout
+      })
+  
+    } catch (error) {
+      console.log(error);
+    }
+  
+  });
+
+/**
+ * PUT /
+ * ADMIN - Create New Post
+ */
+
+router.put('/edit-post/:id', authMiddleware, async (req, res) => {
+    try {
+  
+      await Post.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        body: req.body.body,
+        updatedAt: Date.now()
+      });
+  
+      res.redirect(`/edit-post/${req.params.id}`);
+  
+    } catch (error) {
+      console.log(error);
+    }
+  
+  });
 
 module.exports = router;
