@@ -172,7 +172,7 @@ img {
     text-decoration: underline;
 }
 
-.header__nav ul a:active {
+.header__nav ul a.active {
     color: var(--gray);
 }
 

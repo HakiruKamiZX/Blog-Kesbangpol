@@ -235,4 +235,30 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
   
   });
 
+  /**
+ * PUT /
+ * ADMIN - Delete Post
+ */
+
+router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
+
+    try {
+        await Post.deleteOne( {_id: req.params.id} );
+        res.redirect(`/dashboard`);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+  /**
+ * GET /
+ * ADMIN - lOGOUT
+ */
+
+router.get(`/logout`, (req, res) => {
+    res.clearCookie('token');
+    // res.json({message: `Logout Succesfull`});
+    res.redirect('/')
+});
+
 module.exports = router;
