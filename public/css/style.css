@@ -42,6 +42,11 @@ textarea {
     margin-bottom: 1rem;
 }
 
+.invisible-text {
+    color: transparent; /* Makes the text invisible */
+}
+
+/* General Purpose */
 .btn {
     background-color: var(--black);
     border: none;
@@ -283,13 +288,98 @@ img {
     background-color: #0056b3;
 }
 
+/* Contactinfo */
 
-/* Footer */
+
+.heading-underline-new {
+    width: 60px;
+    height: 4px;
+    background-color: #000000;
+    margin-top: 0px; /* Adjust this value as needed */
+    margin: 0 auto; /* Centers the underline */
+}
+
 .footer {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 16px; /* Add this line or adjust the value if already present */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional */
+    transition: transform 0.2s, box-shadow 0.2s; /* Optional: adds a smooth hover effect */
+  }
+  
+  .footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhances hover effect */
+  }
+  
+
+  .footer-container {
+    display: flex;
+    gap: 45px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .footer-section h4 {
+    color: #000000;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .contact__heading {
+    text-align: center;
+    margin-bottom: 10px; /* Adjust this value as needed */
+  }
+
+  .contact-details {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8;
+  }
+  
+  .contact-details li {
+    margin-bottom: 8px;
+  }
+  
+  .contact-details li a {
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  .contact-details li a:hover {
+    text-decoration: underline;
+  }
+  
+  .map-container iframe {
+    border-radius: 8px;
+  }
+  
+  .footer-bottom {
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    border-top: 1px solid #fefefe;
+    padding-top: 5px;
+  }
+  
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    text-align: center;
+    filter: invert(1); /* Adjusts icons to match the dark theme */
+  }
+  
+/* Footer */
+.footer-old {
     margin: 4rem;
     text-align: center;
 }
-
 
 /* SearchBar */
 .searchBar {
