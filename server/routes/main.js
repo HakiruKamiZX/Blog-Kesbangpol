@@ -111,7 +111,8 @@ router.post ('/search', async (req, res) => {
 
         res.render("search_page",{
             data,
-            locals
+            locals,
+            currentRoute: '/',
         });
     } catch (error) {
       console.log(error); 

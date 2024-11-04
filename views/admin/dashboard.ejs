@@ -1,18 +1,19 @@
 <div class="admin-title">
     <h2>Post</h2>
-    <a href="/add-post" class="button">+ add new</a>
+    <a href="/add-post" class="btn">+ add new</a>
 </div>
 
-<ul class="admin-posts">
+<div class="articles__container">
+    <% data.forEach(function(post) { %>
+      <div class="article-card">
+        <h3 class="article-title"><%= post.title %></h3>
+        <p class="article-meta"><%= post.createdAt.toDateString() %></p>
 
-    <% data.forEach(post => { %>
-
-        <li>
-
-            <a href="/post/<%=post._id  %>">
-
-                <%= post.title %> &nearr;
-            </a>
+        <!-- Show only the first 20 words of the article body -->
+        <p class="article-excerpt">
+          <% let words = post.body.split(' '); %>
+          <%= words.slice(0, 20).join(' ') %>...
+        </p>
             <div class="admin-post-controls">
                 <a href="/edit-post/<%= post._id %>" class="btn">Edit</a>
 
@@ -21,7 +22,8 @@
                 </form>
             </div>
 
-        </li>
+        </div> 
+        
      
     <% }) %>
-</ul>
+</div>

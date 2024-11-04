@@ -6,6 +6,8 @@
   --gray: #7E7E7E;
   --gray-light: #E4E4E4;
   --red: #b30000;
+  --blue: #4a07c7;
+  --green: #009b15;
   --font-size-base: 1rem;
   --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
   --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2rem);
@@ -55,7 +57,13 @@ textarea {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    transition: transform 0.3s ease
 }
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
 
 .btn-delete {
     padding: 10px 16px;
@@ -138,6 +146,7 @@ img {
     grid-area: button;
     display: flex;
     justify-content: end;
+    
 }
 
 .header__button button {
@@ -166,6 +175,7 @@ img {
     gap: 1rem;
     font-weight: 600;
     padding: 0;
+    justify-content: end;
 }
 
 .header__nav ul a {
@@ -178,7 +188,7 @@ img {
 }
 
 .header__nav ul a.active {
-    color: var(--gray);
+    color: rgb(84, 21, 21);
 }
 
 /* Author --> Homepage */
@@ -309,71 +319,72 @@ img {
     transition: transform 0.2s, box-shadow 0.2s; /* Optional: adds a smooth hover effect */
   }
   
-  .footer:hover {
+.footer:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhances hover effect */
   }
   
 
-  .footer-container {
+.footer-container {
     display: flex;
     gap: 45px;
   }
   
-  .footer-section {
+.footer-section {
     flex: 1;
     padding: 10px;
   }
   
-  .footer-section h4 {
+.footer-section h4 {
     color: #000000;
     margin-bottom: 10px;
     font-size: 18px;
   }
   
-  .contact__heading {
+.contact__heading {
     text-align: center;
     margin-bottom: 10px; /* Adjust this value as needed */
   }
 
-  .contact-details {
+.contact-details {
     list-style: none;
     padding: 0;
     line-height: 1.8;
   }
   
-  .contact-details li {
+.contact-details li {
     margin-bottom: 8px;
   }
   
-  .contact-details li a {
+.contact-details li a {
     color: #ccc;
     text-decoration: none;
   }
   
-  .contact-details li a:hover {
+.contact-details li a:hover {
     text-decoration: underline;
   }
   
-  .map-container iframe {
+.map-container iframe {
     border-radius: 8px;
   }
   
-  .footer-bottom {
-    margin-top: 30px;
+.footer-bottom {
+    margin-top: 15px;
     display: flex;
     justify-content: end;
     border-top: 1px solid #fefefe;
     padding-top: 5px;
   }
   
-  .social-icons a img {
-    width: 24px;
-    height: 24px;
+.social-icons a img {
+    width: 35px; /* Adjust as needed */
+    height: 35px;
     margin-right: 10px;
-    text-align: center;
-    filter: invert(1); /* Adjusts icons to match the dark theme */
-  }
+    cursor: pointer;
+}
+
+
   
 /* Footer */
 .footer-old {
@@ -391,25 +402,42 @@ img {
     left: 0;
     right: 0;
 }
-
 .searchBar.open {
     transform: translateY(0);
     transition: transform 0.1s;
 }
 
-.searchBar input {
-    margin: 0;
-    padding: 0;
+.searchBar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures elements are spaced apart */
+    width: 100%; /* Takes the full width of the parent */
+}
+
+.search__form {
+    width: 90%;
+}
+
+.searchBar input { /* Allows the input to expand and take up available space */
+    padding: 10px;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
 }
 
 #searchClose {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-bottom: 18px;
+    margin-left: 10px; /* Adds space between the input and the "Close" button */
     color: var(--gray-light);
-    padding: 15px ;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    color: var(--black);
+    padding: 10px 20px ;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    border-radius: 4px;
 }
+
 
 /* AdminPost */
 .admin-title {
