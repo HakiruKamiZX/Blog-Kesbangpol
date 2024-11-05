@@ -26,4 +26,16 @@
         
      
     <% }) %>
+
+    
 </div>
+
+<div class="pagination">
+    <% if (current > 1) { %>
+      <a href="?page=<%= current - 1 %>" class="prev">Previous</a>
+    <% } %>
+    
+    <% if (nextPage) { %>
+      <a href="?page=<%= nextPage %>" class="next">Next</a>
+    <% } %>
+  </div>

@@ -1,14 +1,14 @@
-<div class="author">
+<div class="author fade">
     <h1 class="author__heading">Suku Badan Kesatuan Bangsa dan Politik</h1>
     <p class="author__body">Kota Administrasi Jakarta Timur</p>
 </div>
 
 <div class="image-xcontain">
-    <img src="/images/department.jpg" alt="Gedung Walikota Jakarta Timur" class="department-image">
+    <img src="/images/department.jpg" alt="Gedung Walikota Jakarta Timur" class="department-image fade">
 </div>
 
 
-<section class="news-section">
+<section class="news-section fade">
     <!-- Article Heading -->
     <div class="articles__header">
       <h2 class="articles__heading">Latest Post</h2>
@@ -16,9 +16,9 @@
     </div>
   
     <!-- Articles Container -->
-    <div class="articles__container">
+    <div class="articles__container fade">
       <% data.forEach(function(post) { %>
-        <div class="article-card">
+        <div class="article-card fade">
           <h3 class="article-title"><%= post.title %></h3>
           <p class="article-meta"><%= post.createdAt.toDateString() %></p>
   
