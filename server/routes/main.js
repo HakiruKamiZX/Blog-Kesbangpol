@@ -122,10 +122,41 @@ router.post ('/search', async (req, res) => {
 
 
 router.get('/about', (req,res) => {
-    res.render('about', {
-        currentRoute: `/about`,
-    });
+    try {
+        const locals = {
+            title : "Informasi Kantor",
+            description: "This is a test for thew node js version of the web"
+        } 
+
+        res.render('about', {
+            locals,
+            currentRoute: `/about`,
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+    
 });
+
+router.get('/staff', (req,res) => {
+    try {
+        const locals = {
+            title : "Pegawai Kesbangpol",
+            description: "This is a test for thew node js version of the web"
+        } 
+
+        res.render('staff', {
+            locals,
+            currentRoute: `/staff`,
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+    
+});
+
 
 
 

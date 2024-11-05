@@ -118,12 +118,26 @@ router.get('/dashboard', authMiddleware ,async (req, res) => {
             description : 'Admin Dashbaord For Kesbangpol Blog'
         }
 
+        let perPage = 8;
+        let page = req.query.page || 1;
 
-        const data = await Post.find();
+        const data = await Post.aggregate([ { $sort: { createdAt : -1 } } ])
+        .skip(perPage * page - perPage)
+        .limit(perPage)
+        .exec();
+
+        const count = await Post.countDocuments();
+        const nextPage = parseInt(page) + 1;
+        const hasNextPage = nextPage <= Math.ceil(count / perPage);
+
+
+        // const data = await Post.find();
         res.render(`admin/dashboard`, {
             locals,
             data,
-            layout: adminLayout
+            layout: adminLayout,
+            current: page,
+            nextPage: hasNextPage ? nextPage : null,
         });
 
     } catch (error) {
