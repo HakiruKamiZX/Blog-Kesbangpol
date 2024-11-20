@@ -1,8 +1,8 @@
-const mongoose = require(`mongoose`);
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const PostSchema = new Schema({
-    title : {
+    title: {
         type: String,
         required: true
     },
@@ -10,6 +10,11 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
+    // image: {
+    //     data: Buffer,
+    //     contentType: String,
+    //     required: false
+    // },
     createdAt: {
         type: Date,
         default: Date.now

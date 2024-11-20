@@ -10,7 +10,7 @@ const Post = require('../models/Post');
 router.get ('', async (req, res) => {
     try {
         const locals = {
-            title : "Kesbangpol Blog",
+            title : "Suku Badan Kesatuan Bangsa dan Politik Kota Administrasi Jakarta Timur",
             description: "This is a test for thew node js version of the web"
         }
 
