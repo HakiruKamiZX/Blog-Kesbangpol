@@ -146,7 +146,6 @@ img {
     grid-area: button;
     display: flex;
     justify-content: end;
-    
 }
 
 .header__button button {
@@ -189,6 +188,70 @@ img {
 
 .header__nav ul a.active {
     color: rgb(84, 21, 21);
+}
+
+/* Header --> Dropdown */
+
+.dropdown__title {
+    color: black;
+    font-size: 16px;
+    cursor: default;
+    display: inline-block;
+}
+
+.dropdown__title:hover {
+    color: inherit; 
+}
+
+.header__nav ul .dropdown {
+    position: relative;
+}
+
+.header__nav ul .dropdown__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    z-index: 1000;
+    width: 200px;
+    margin-top: 10px;
+    pointer-events: none; 
+    opacity: 0; 
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    visibility: hidden; 
+    margin-top: 0px; 
+    padding-top: 10px; 
+}
+
+.header__nav ul .dropdown__menu li {
+    list-style: none;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.header__nav ul .dropdown__menu li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+    display: block;
+}
+
+.header__nav ul .dropdown__menu li a:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.header__nav ul .dropdown:hover .dropdown__menu {
+    display: block;
+    opacity: 1;
+    pointer-events: auto; 
+    visibility: visible;
+    padding-top: 10px; 
 }
 
 /* Author --> Homepage */
@@ -350,7 +413,7 @@ img {
   
 .contact__heading {
     text-align: center;
-    margin-bottom: 10px; /* Adjust this value as needed */
+    margin-bottom: 10px; 
   }
 
 .contact-details {
@@ -385,7 +448,7 @@ img {
   }
   
 .social-icons a img {
-    width: 35px; /* Adjust as needed */
+    width: 35px; 
     height: 35px;
     margin-right: 10px;
     cursor: pointer;
@@ -399,6 +462,7 @@ img {
 
 /* SearchBar */
 .searchBar {
+    z-index: 2000; 
     visibility: hidden;
     transform: translateY(-100px);
     background-color: var(--black);
@@ -415,15 +479,15 @@ img {
 .searchBar .container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensures elements are spaced apart */
-    width: 100%; /* Takes the full width of the parent */
+    justify-content: space-between; 
+    width: 100%; 
 }
 
 .search__form {
     width: 90%;
 }
 
-.searchBar input { /* Allows the input to expand and take up available space */
+.searchBar input { 
     padding: 10px;
     border: 1px solid var(--gray-light);
     border-radius: 4px;
@@ -431,7 +495,7 @@ img {
 
 #searchClose {
     margin-bottom: 18px;
-    margin-left: 10px; /* Adds space between the input and the "Close" button */
+    margin-left: 10px; 
     color: var(--gray-light);
     cursor: pointer;
     background-color: white;
@@ -619,6 +683,14 @@ img {
 .about__header {
     text-align: justify;
     text-justify: inter-word;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.about-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 .department-image-new {
@@ -668,5 +740,14 @@ img {
 .fade.visible {
     opacity: 1; /* Fully visible when scrolled into view */
 }
+
+
+/* Admin Error */
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 
 

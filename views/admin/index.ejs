@@ -8,13 +8,18 @@
 
     <input type="submit" value="Login" class="btn">
 </form> -->
-
 <body>
     <div class="login-page">
         <div class="login-container">
             <div class="wrapper">
                 <form action="/admin" method="POST">
                     <h1>Login</h1>
+
+                    <!-- Error message display -->
+                    <% if (errorMessage) { %>
+                        <p style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+
                     <div class="input-box">
                         <input type="text" placeholder="Enter Username" name="username" required>
                         <i class='bx bxs-user'></i>
@@ -29,6 +34,7 @@
         </div>
     </div>
 </body>
+
 
 
 
