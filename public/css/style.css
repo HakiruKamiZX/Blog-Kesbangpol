@@ -169,6 +169,7 @@ img {
 /* Header --> Navigation */
 
 .header__nav ul {
+    margin-left: 2rem;
     list-style-type: none ;
     display: flex;
     gap: 1rem;
