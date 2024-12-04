@@ -64,10 +64,29 @@ textarea {
     transform: scale(1.05);
 }
 
+.btn-logout {
+    text-decoration: none;
+    margin: 4px 2px;
+    transition: transform 0.3s ease;
+    padding: 10px 32px;
+    color: white;
+    background-color: var(--red);
+}
+
+.btn-logout:hover{
+    transform: scale(1.05);
+}
 
 .btn-delete {
-    padding: 10px 16px;
+    margin: 4px 2px;
+    transition: transform 0.3s ease;
+    padding: 8px 8px;
+    color: white;
     background-color: var(--red);
+}
+
+.btn-delete:hover{
+    transform: scale(1.05);
 }
 
 img {
@@ -139,7 +158,6 @@ img {
     grid-area: menu;
     display: flex;
     justify-content: center;
-
 }
 
 .header__button {
@@ -169,7 +187,7 @@ img {
 /* Header --> Navigation */
 
 .header__nav ul {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     list-style-type: none ;
     display: flex;
     gap: 1rem;
@@ -253,7 +271,7 @@ img {
     pointer-events: auto; 
     visibility: visible;
     padding-top: 10px; 
-}
+} 
 
 /* Author --> Homepage */
 .author {
@@ -514,6 +532,30 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logout__button {
+    grid-area: button;
+    display: flex;
+    justify-content: end;
+}
+
+.logout__button button {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    border: 0;
+    padding: 6px 12px;
+    background: none;
+    border-radius: var(--border-radius);
+    border: 2px solid transparent;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--red);
+}
+
+.logout__button button:hover{
+    border: 2px solid var(--black);
 }
 
 .admin-posts {
